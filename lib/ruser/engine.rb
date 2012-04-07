@@ -52,7 +52,7 @@ require 'omniauth-openid'#, "~> 1.0.1"
 require "omniauth-github"#, "~> 1.0.0"
 require "omniauth-twitter"#, "~> 0.0.7"
 #gem "omniauth-douban", :git => "git://github.com/ballantyne/omniauth-douban.git"
-require "omniauth-douban"#, :git => "http://github.com/ballantyne/omniauth-douban.git"
+#require "omniauth-douban"
 
 
 

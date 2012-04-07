@@ -29,15 +29,16 @@ end
 # gem 'ruby-debug19', :require => 'ruby-debug'
 # 
 #this is for init_breadcrume....
-gem 'bootstrap-rails', :require => 'bootstrap-rails', :git => 'http://github.com/xdite/bootstrap-rails.git'
-
+#gem 'bootstrap-rails', :require => 'bootstrap-rails', :git => 'https://github.com/xdite/bootstrap-rails.git'
+#gem 'bootstrap-rails', :require => 'bootstrap-rails', :path => '~/vob/bootstrap-rails'
+gem 'bootstrap-rails',:path=>"~/vob/github/bootstrap-rails"
 # YAML 配置信息
 gem "settingslogic", "~> 2.0.6"
 
 gem "cells", "3.8.3"
 
-gem 'mail_view', :git => 'http://github.com/37signals/mail_view.git'
-
+#gem 'mail_view', :git => 'http://github.com/37signals/mail_view.git'
+gem 'mail_view', :path=>"~/vob/github/mail_view"
 # 上传组件
 gem 'carrierwave', '0.5.7'
 gem 'carrierwave-mongoid', '0.1.2', :require => 'carrierwave/mongoid'
@@ -76,7 +77,7 @@ gem 'omniauth-openid', "~> 1.0.1"
 gem "omniauth-github", "~> 1.0.0"
 gem "omniauth-twitter", "~> 0.0.7"
 #gem "omniauth-douban", :git => "git://github.com/ballantyne/omniauth-douban.git"
-gem "omniauth-douban", :git => "http://github.com/ballantyne/omniauth-douban.git"
+#gem "omniauth-douban", :git => "http://github.com/ballantyne/omniauth-douban.git"
 
 group :development, :test do
   gem 'capistrano', '2.9.0'

@@ -7,11 +7,11 @@ require "ruser/version"
 Gem::Specification.new do |s|
   s.name        = "ruser"
   s.version     = Ruser::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Ruser."
-  s.description = "TODO: Description of Ruser."
+  s.authors     = ["hunter"]
+  s.email       = ["hunter.wxhu@gmail.com"]
+  s.homepage    = "http://github.com"
+  s.summary     = " Summary of Ruser."
+  s.description = " Description of Ruser."
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
@@ -67,7 +67,7 @@ Gem::Specification.new do |s|
   s.add_dependency "omniauth-github", "~> 1.0.0"
   s.add_dependency "omniauth-twitter", "~> 0.0.7"
 #gem "omniauth-douban", :git => "git://github.com/ballantyne/omniauth-douban.git"
-  s.add_dependency "omniauth-douban"#, :git => "http://github.com/ballantyne/omniauth-douban.git"
+ # s.add_dependency "omniauth-douban"#, :git => "http://github.com/ballantyne/omniauth-douban.git"
 
   s.add_dependency "watir-webdriver"
 
