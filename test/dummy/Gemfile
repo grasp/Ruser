@@ -8,7 +8,7 @@ gemspec
 # jquery-rails is used by the dummy application
 #gem "jquery-rails"
 
-#gem "rails", "3.2.2"
+#gem "rails", "3.2.3"
 gem "rails-i18n","0.1.8"
 gem "jquery-rails", "1.0.16"
 gem "rails_autolink", ">= 1.0.4"

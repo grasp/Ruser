@@ -12,37 +12,37 @@ class UsersController < Ruser::RuserController
     @total_user_count = Ruser::User.count
      @active_users = Ruser::User.hot.limit(20)
       @recent_join_users = Ruser::User.recent.limit(20)
-    drop_breadcrumb t("common.index")
+    drop_breadcrumb t("common.index"),:use_route=>"ruser"
   end
 
   def show
    # @topics = @user.topics.recent.limit(10)
    # @replies = @user.replies.only(:topic_id,:created_at).recent.includes(:topic).limit(10)
     set_seo_meta("#{@user.login}")
-    drop_breadcrumb(@user.login)
+    drop_breadcrumb(@user.login,:use_route=>"ruser")
   end
 
   def topics
     @topics = @user.topics.recent.paginate(:page => params[:page], :per_page => 30)
-    drop_breadcrumb(@user.login, user_path(@user.login))
-    drop_breadcrumb(t("topics.title"))
+    drop_breadcrumb(@user.login, ruser.user_path(@user.login))
+    drop_breadcrumb(t("topics.title"),:use_route=>"ruser")
   end
 
   def likes
     @likes = @user.likes.recent.topics.paginate(:page => params[:page], :per_page => 30)
-    drop_breadcrumb(@user.login, user_path(@user.login))
-    drop_breadcrumb(t("users.menu.like"))
+    drop_breadcrumb(@user.login, ruser.user_path(@user.login))
+    drop_breadcrumb(t("users.menu.like"),:use_route=>"ruser")
   end
 
   def auth_unbind
     provider = params[:provider]
     if current_user.authorizations.count <= 1
-      redirect_to edit_user_registration_path, :flash => {:error => t("users.unbind_warning")}
+      redirect_to ruser.edit_user_registration_path, :flash => {:error => t("users.unbind_warning")}
       return
     end
 
     current_user.authorizations.destroy_all(:conditions => {:provider => provider})
-    redirect_to edit_user_registration_path, :flash => {:warring => t("users.unbind_success", :provider => provider.titleize )}
+    redirect_to ruser.edit_user_registration_path, :flash => {:warring => t("users.unbind_success", :provider => provider.titleize )}
   end
 
   def location
@@ -59,7 +59,7 @@ class UsersController < Ruser::RuserController
       return
     end
 
-    drop_breadcrumb(@location.name)
+    drop_breadcrumb(@location.name,:use_route=>"ruser")
   end
 
   protected
@@ -73,7 +73,7 @@ class UsersController < Ruser::RuserController
   end
 
   def init_base_breadcrumb
-    drop_breadcrumb( t("menu.users"), users_path)
+    drop_breadcrumb( t("menu.users"), ruser.users_path)
   end
   
   def routenav

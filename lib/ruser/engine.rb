@@ -81,8 +81,7 @@ module Ruser
     end
     
     config.to_prepare {
-      Devise::Mailer.layout "mailer"
-      
+      Devise::Mailer.layout "mailer"      
     }
 
     isolate_namespace Ruser

@@ -30,8 +30,19 @@ class Ruser::User
   field :likes_count, :type => Integer, :default => 0
   # 用户密钥，用于客户端验证
   field :private_token
+  field :encrypted_password #is this add for 2.0?? as I failed on method  encrypted_password=
 #upgrade to 2.0 needed
   field :reset_password_sent_at#,:type => Integer, :default => 6
+  
+  #tracable
+      field :sign_in_count   #   - Increased every time a sign in is made (by form, openid, oauth)
+    field :current_sign_in_at  # - A timestamp updated when the user signs in
+   field :last_sign_in_at     # - Holds the timestamp of the previous sign in
+    field :current_sign_in_ip  # - The remote ip updated when the user sign in
+    field :last_sign_in_ip     # - Holds the remote ip of the previous sign in
+  #remember
+  field :remember_created_at
+  
   mount_uploader :avatar, AvatarUploader
 
   index :login
@@ -66,8 +77,9 @@ class Ruser::User
   end
 
   attr_accessor :password_confirmation
-  attr_accessible :name, :email, :location, :bio, :website, :github, :tagline, :avatar, :password, :password_confirmation
+  attr_accessible :name, :email, :location, :bio, :website, :github, :tagline, :avatar, :password, :password_confirmation, :encrypted_password
 
+  
   validates :login, :format => {:with => /\A\w+\z/, :message => '只允许数字、大小写字母和下划线'}, :length => {:in => 3..20}, :presence => true, :uniqueness => {:case_sensitive => false}
 
 
